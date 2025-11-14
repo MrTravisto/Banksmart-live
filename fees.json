@@ -1,93 +1,178 @@
 [
   {
-    "bank": "FNB",
-    "account": "Easy PAYT",
-    "fee": 7.5,
-    "minSalary": 0,
-    "notes": "Pay-as-you-transact"
-  },
-  {
-    "bank": "FNB",
-    "account": "Easy Bundle",
-    "fee": 73.5,
-    "minSalary": 0,
-    "notes": "Bundled - includes transactions"
-  },
-  {
-    "bank": "FNB",
-    "account": "Premier",
-    "fee": 265,
-    "minSalary": 25000,
-    "notes": "Premium account"
-  },
-  {
-    "bank": "Absa",
-    "account": "Transact",
-    "fee": 7.0,
-    "minSalary": 0,
-    "notes": "Entry-level account"
-  },
-  {
-    "bank": "Absa",
-    "account": "Premium Bundle",
-    "fee": 435,
-    "minSalary": 40000,
-    "notes": "Premium"
-  },
-  {
-    "bank": "Standard Bank",
-    "account": "MyMo",
-    "fee": 4.95,
-    "minSalary": 0,
-    "notes": "Digital entry-level"
-  },
-  {
-    "bank": "Standard Bank",
-    "account": "MyMo Plus",
-    "fee": 125,
-    "minSalary": 0,
-    "notes": "Bundled account"
-  },
-  {
-    "bank": "Nedbank",
-    "account": "MiGoals",
-    "fee": 105,
-    "minSalary": 0,
-    "notes": "Goal-based bundle"
-  },
-  {
-    "bank": "Nedbank",
-    "account": "Savvy Bundle",
-    "fee": 245,
-    "minSalary": 15000,
-    "notes": "Premium bundle"
-  },
-  {
-    "bank": "Capitec",
-    "account": "Global One",
-    "fee": 7.5,
-    "minSalary": 0,
-    "notes": "Low monthly fee"
-  },
-  {
     "bank": "TymeBank",
     "account": "EveryDay",
     "fee": 0,
     "minSalary": 0,
-    "notes": "Zero monthly fee"
+    "transactionCost": 0,
+    "includedTransactions": 0,
+    "type": "digital",
+    "notes": "Zero monthly fee \u2022 Digital",
+    "url": "https://www.tymebank.co.za/personal-banking/accounts/everyday-account/"
   },
   {
     "bank": "Bank Zero",
     "account": "Personal",
     "fee": 0,
     "minSalary": 0,
-    "notes": "Zero monthly fee"
+    "transactionCost": 0,
+    "includedTransactions": 0,
+    "type": "digital",
+    "notes": "Zero monthly fee \u2022 App-based",
+    "url": "https://www.bankzero.co.za/rates-and-pricing/"
+  },
+  {
+    "bank": "Spot Money",
+    "account": "Digital",
+    "fee": 0,
+    "minSalary": 0,
+    "transactionCost": 0,
+    "includedTransactions": 0,
+    "type": "digital",
+    "notes": "Zero fee digital account",
+    "url": "https://www.spotmoney.com/"
+  },
+  {
+    "bank": "Capitec",
+    "account": "Global One",
+    "fee": 7.5,
+    "minSalary": 0,
+    "transactionCost": 2.0,
+    "includedTransactions": 5,
+    "type": "traditional",
+    "notes": "Low monthly fee + pay-as-you-transact",
+    "url": "https://www.capitecbank.co.za/personal/transact/global-one-card/"
+  },
+  {
+    "bank": "Absa",
+    "account": "Transact",
+    "fee": 7.0,
+    "minSalary": 0,
+    "transactionCost": 2.8,
+    "includedTransactions": 0,
+    "type": "traditional",
+    "notes": "Entry-level account",
+    "url": "https://www.absa.co.za/personal/bank/an-account/transact-account/"
+  },
+  {
+    "bank": "Absa",
+    "account": "Premier Bundle",
+    "fee": 435,
+    "minSalary": 40000,
+    "transactionCost": 0,
+    "includedTransactions": 120,
+    "type": "premium",
+    "notes": "Comprehensive bundle",
+    "url": "https://www.absa.co.za/personal/bank/an-account/premier/"
+  },
+  {
+    "bank": "FNB",
+    "account": "Easy PAYT",
+    "fee": 7.5,
+    "minSalary": 0,
+    "transactionCost": 2.5,
+    "includedTransactions": 0,
+    "type": "traditional",
+    "notes": "Pay-as-you-transact",
+    "url": "https://www.fnb.co.za/for-you/easy-smart-account/"
+  },
+  {
+    "bank": "FNB",
+    "account": "Easy Bundle",
+    "fee": 73.5,
+    "minSalary": 0,
+    "transactionCost": 0,
+    "includedTransactions": 30,
+    "type": "traditional",
+    "notes": "Bundled - includes transactions",
+    "url": "https://www.fnb.co.za/for-you/easy-smart-account/"
+  },
+  {
+    "bank": "FNB",
+    "account": "Premier",
+    "fee": 265,
+    "minSalary": 25000,
+    "transactionCost": 0,
+    "includedTransactions": 100,
+    "type": "premium",
+    "notes": "Premium account with benefits",
+    "url": "https://www.fnb.co.za/premier-select/premier-current-account.html"
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo",
+    "fee": 4.95,
+    "minSalary": 0,
+    "transactionCost": 1.5,
+    "includedTransactions": 2,
+    "type": "traditional",
+    "notes": "Digital entry-level",
+    "url": "https://www.standardbank.co.za/"
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo Plus",
+    "fee": 125,
+    "minSalary": 0,
+    "transactionCost": 0,
+    "includedTransactions": 35,
+    "type": "traditional",
+    "notes": "Bundled account",
+    "url": "https://www.standardbank.co.za/"
+  },
+  {
+    "bank": "Nedbank",
+    "account": "MiGoals",
+    "fee": 105,
+    "minSalary": 0,
+    "transactionCost": 0,
+    "includedTransactions": 30,
+    "type": "traditional",
+    "notes": "Goal-based bundle",
+    "url": "https://personal.nedbank.co.za/"
+  },
+  {
+    "bank": "Nedbank",
+    "account": "Savvy Bundle",
+    "fee": 245,
+    "minSalary": 15000,
+    "transactionCost": 0,
+    "includedTransactions": 80,
+    "type": "premium",
+    "notes": "Premium bundle",
+    "url": "https://personal.nedbank.co.za/"
   },
   {
     "bank": "African Bank",
     "account": "MyWORLD",
     "fee": 75,
     "minSalary": 0,
-    "notes": "Bundle account"
+    "transactionCost": 0,
+    "includedTransactions": 25,
+    "type": "traditional",
+    "notes": "Bundle account",
+    "url": "https://www.africanbank.co.za/en/home/banking/"
+  },
+  {
+    "bank": "Discovery Bank",
+    "account": "Gold Transaction (PAYT)",
+    "fee": 32.5,
+    "minSalary": 0,
+    "transactionCost": 2.5,
+    "includedTransactions": 0,
+    "type": "traditional",
+    "notes": "Pay-as-you-transact with rewards",
+    "url": "https://www.discovery.co.za/bank/"
+  },
+  {
+    "bank": "Investec",
+    "account": "Private Bank Account",
+    "fee": 675,
+    "minSalary": 80000,
+    "transactionCost": 0,
+    "includedTransactions": 200,
+    "type": "premium",
+    "notes": "Private banking",
+    "url": "https://www.investec.com/en_za/banking/"
   }
 ]

@@ -4,31 +4,58 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>BankSmart — Compare SA Bank Fees</title>
-<style>
-body {font-family: Arial; background:#0f172a; color:#e5e7eb; margin:0; padding:0;}
-.wrap {max-width:1100px; margin:20px auto; padding:20px;}
-.card {background:#0e1426; padding:20px; border-radius:12px; border:1px solid #1e293b;}
-.hero {text-align:center; padding:40px 20px;}
-.hero h1 {font-size:2.5rem; color:#22c55e;}
-footer {text-align:center; padding:25px; margin-top:40px; color:#94a3b8; font-size:14px;
-        border-top:1px solid #1e293b;}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="hero">
-    <h1>BankSmart</h1>
-    <p>Compare South African Bank Fees & Save Money</p>
+  <div class="wrap">
+    <header class="hero">
+      <div class="brand"><div class="logo">B</div><div class="titles"><h1>BankSmart</h1><p class="tag">Compare South African bank fees & save money</p></div></div>
+    </header>
+
+    <main class="card">
+      <div class="controls">
+        <div class="field">
+          <label for="salary">💰 Monthly Salary (ZAR)</label>
+          <input id="salary" type="number" placeholder="e.g., 18000" value="18000">
+        </div>
+
+        <div class="field">
+          <label for="transactions">🔁 Monthly Transactions</label>
+          <select id="transactions">
+            <option value="5">Low (1–5)</option>
+            <option value="15" selected>Medium (6–15)</option>
+            <option value="30">High (16–30)</option>
+            <option value="50">Very High (30+)</option>
+          </select>
+        </div>
+
+        <div class="field filters">
+          <label>🏦 Show bank types</label>
+          <div class="filter-options">
+            <label><input type="checkbox" id="filterDigital" checked> Digital</label>
+            <label><input type="checkbox" id="filterTraditional" checked> Traditional</label>
+            <label><input type="checkbox" id="filterPremium" checked> Premium</label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnCompare" class="btn">Compare Accounts</button>
+          <button id="btnReset" class="btn ghost">Reset</button>
+        </div>
+      </div>
+
+      <div id="status" class="summary"></div>
+      <div id="results" class="results"></div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>BankSmart helps you compare bank fees across South African banks.</p>
+        <p class="small">Built and maintained by Trevor Barnard © 2025</p>
+      </div>
+    </footer>
   </div>
 
-  <div class="card">
-    <p>Site currently updating…</p>
-  </div>
-</div>
-
-<footer>
-  Built and maintained by Trevor Barnard © 2025
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
