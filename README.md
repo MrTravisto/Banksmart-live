@@ -1,15 +1,18 @@
-# BankSmart – SA Bank Fee Comparator
+# BankSmart v2
+Simple static site to compare South African bank account fees.
 
-Static single-page app that compares South African bank accounts by estimated total monthly cost.
+## Contents
+- `index.html` — main page
+- `styles.css` — styles
+- `script.js` — comparison logic, working Compare button
+- `README.md` — this file
 
-## How to deploy on GitHub Pages
+## Notes
+- TymeBank was intentionally removed per request.
+- `script.js` includes a `fetchLiveFees()` placeholder you can swap with a real API later.
+- Built and maintained by Trevor Barnard.
 
-1. Create a repository (for example `Banksmart-live`).
-2. Add `index.html` from this folder to the root of the repo.
-3. Commit and push.
-4. In GitHub, go to **Settings → Pages** and set:
-   - Source: `Deploy from a branch`
-   - Branch: `main` (or `master`) / root
-5. After a few minutes your site will be live.
-
-Built and maintained by Trevor Barnard.
+## How to use
+1. Create a new GitHub repository (or use existing).
+2. Upload these files to the repository's root.
+3. Enable GitHub Pages (branch `main` or `gh-pages`) to publish the site.
