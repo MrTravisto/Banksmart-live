@@ -1,23 +1,18 @@
-# BankSmart — Static GitHub Pages site
+# BankSmart — Static Demo Site
+This package is a ready-to-upload static site for GitHub Pages / Netlify.
 
-This package is a simple static site you can upload to GitHub Pages.
+**What's included**
+- `index.html` — main site (single-file demo)
+- Affiliate links automatically append `?ref=banksmart`
+- Footer credit: Built & Maintained by Trevor
 
-## Included
-- index.html
-- styles.css
-- script.js
-- fees.json (editable — update this to change displayed fees)
+**How to deploy**
+1. Create a new GitHub repository (e.g. `Banksmart-live`).
+2. Upload these files to the repository root (or drag & drop the ZIP contents).
+3. Enable GitHub Pages from repository settings (branch `main` / `gh-pages`, root).
+4. (Optional) Add a `CNAME` file with your domain (e.g. `banksmart.co.za`) in repo root.
+5. Or drag the extracted files to Netlify / Vercel for instant deploy.
 
-## How it works
-- `index.html` loads `script.js`
-- `script.js` loads `fees.json` and displays accounts sorted by estimated monthly total cost.
-- No server required — works on GitHub Pages.
-
-## To publish
-1. Create or open your repository (e.g., `Banksmart-live`)
-2. Upload these files to the repo root
-3. Enable GitHub Pages (if required)
-4. Open your site URL (e.g., `https://<username>.github.io/<repo>/`)
-
-## Notes
-Fees are example data. Verify against official bank pages before relying on them.
+**Notes**
+- This demo uses static example fees. To use live fees you will need a backend or a scheduled script to scrape/consume bank APIs.
+- Affiliate prefix used: `ref=banksmart` (opens in a new tab for best conversion).

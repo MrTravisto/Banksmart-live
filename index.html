@@ -4,58 +4,167 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>BankSmart — Compare SA Bank Fees</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Compare South African bank account fees and find the best option for your needs.">
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #0e1426; 
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --accent: #22c55e;
+  --table: #0b1220;
+  --warning: #f59e0b;
+  --purple: #8b5cf6;
+}
+* { box-sizing: border-box; margin:0; padding:0 }
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:1100px;margin:24px auto;padding:18px;flex:1}
+.card{background:var(--card);border:1px solid #1e293b;border-radius:12px;padding:24px;margin-bottom:20px}
+.hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,rgba(34,197,94,0.1),transparent);border-radius:16px;margin-bottom:30px}
+.hero h1{font-size:2.5rem;margin-bottom:12px;background:linear-gradient(135deg,#22c55e,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.2rem;color:var(--muted);margin-bottom:20px}
+.controls{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.field{display:flex;flex-direction:column;gap:8px;flex:1;min-width:200px}
+label{font-size:14px;color:var(--muted);font-weight:500}
+input,select{padding:12px 16px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#fff;font-size:16px;transition:all .2s}
+input:focus,select:focus{border-color:#22c55e;outline:none;box-shadow:0 0 0 3px rgba(34,197,94,0.1)}
+.btn{padding:12px 24px;border-radius:8px;border:0;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;cursor:pointer;font-weight:600;font-size:16px;transition:all .2s;align-self:flex-end}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(34,197,94,0.3)}
+.table{width:100%;margin-top:20px;border-collapse:collapse;background:var(--table);border-radius:8px;overflow:hidden}
+.table th,.table td{padding:16px;text-align:left;border-bottom:1px solid #1e293b}
+.table th{background:#0a1222;color:#93c5fd;font-size:12px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.summary{color:var(--muted);margin:16px 0;text-align:center;font-size:14px}
+.apply-btn{background:rgba(34,197,94,0.1);color:#22c55e;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:600;display:inline-block;border:1px solid #22c55e;transition:all .2s}
+.apply-btn:hover{background:#22c55e;color:white}
+.footer{text-align:center;padding:30px 20px;margin-top:40px;border-top:1px solid #1e293b;color:var(--muted)}
+.footer p{margin:5px 0;font-size:14px}
+.credits{background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;font-size:15px}
+.warning-banner{background:rgba(245,158,11,0.1);border:1px solid var(--warning);border-radius:8px;padding:16px;margin:20px 0;text-align:center;color:var(--warning)}
+@media(max-width:768px){.wrap{padding:16px}.hero h1{font-size:2rem}.controls{flex-direction:column}.btn{align-self:stretch}.table th,.table td{padding:12px}}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <header class="hero">
-      <div class="brand"><div class="logo">B</div><div class="titles"><h1>BankSmart</h1><p class="tag">Compare South African bank fees & save money</p></div></div>
-    </header>
+    <div class="hero">
+      <h1>BankSmart</h1>
+      <p>Compare South African bank fees & save money</p>
+    </div>
 
-    <main class="card">
+    <div class="warning-banner">
+      <strong>⚠️ Important:</strong> Fee data in this demo is for illustrative purposes. Always verify fees with the bank's official website before applying.
+    </div>
+
+    <div class="card">
       <div class="controls">
         <div class="field">
           <label for="salary">💰 Monthly Salary (ZAR)</label>
-          <input id="salary" type="number" placeholder="e.g., 18000" value="18000">
+          <input id="salary" type="number" placeholder="e.g., 18000" value="18000" />
         </div>
 
         <div class="field">
-          <label for="transactions">🔁 Monthly Transactions</label>
+          <label for="transactions">💳 Monthly Transactions</label>
           <select id="transactions">
             <option value="5">Low (1–5)</option>
             <option value="15" selected>Medium (6–15)</option>
             <option value="30">High (16–30)</option>
-            <option value="50">Very High (30+)</option>
+            <option value="50">Very high (30+)</option>
           </select>
         </div>
 
-        <div class="field filters">
-          <label>🏦 Show bank types</label>
-          <div class="filter-options">
-            <label><input type="checkbox" id="filterDigital" checked> Digital</label>
-            <label><input type="checkbox" id="filterTraditional" checked> Traditional</label>
-            <label><input type="checkbox" id="filterPremium" checked> Premium</label>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button id="btnCompare" class="btn">Compare Accounts</button>
-          <button id="btnReset" class="btn ghost">Reset</button>
-        </div>
+        <button id="btnCompare" class="btn">Compare Accounts</button>
       </div>
 
       <div id="status" class="summary"></div>
-      <div id="results" class="results"></div>
-    </main>
+      <div id="results"></div>
+    </div>
 
-    <footer>
-      <div class="footer-inner">
-        <p>BankSmart helps you compare bank fees across South African banks.</p>
-        <p class="small">Built and maintained by Trevor Barnard © 2025</p>
-      </div>
-    </footer>
   </div>
 
-<script src="script.js"></script>
+  <footer class="footer">
+    <p>BankSmart helps you compare bank fees across South African banks.</p>
+    <p><strong>Always verify current fees with official bank websites</strong></p>
+    <p class="credits">Built & Maintained by Trevor</p>
+    <p style="font-size:12px;margin-top:10px;"><em>Disclosure: BankSmart may earn commissions from partner banks.</em></p>
+  </footer>
+
+<script>
+// Helper to append affiliate param ?ref=banksmart (keep existing query if present)
+function addAffiliate(u){
+  try{
+    const url = new URL(u);
+    url.searchParams.set('ref','banksmart');
+    return url.toString();
+  }catch(e){
+    // if not a valid absolute URL, append safely
+    if(u.indexOf('?')!==-1) return u + '&ref=banksmart';
+    return u + '?ref=banksmart';
+  }
+}
+
+// Data (example fees). Affiliate-aware links added when rendering.
+const ACCOUNTS = [
+  {bank:"TymeBank",account:"EveryDay",fee:0,transactionCost:0,includedTransactions:0,minSalary:0,type:"digital",notes:"Zero monthly fee • digital-first",url:"https://www.tymebank.co.za/personal-banking/accounts/everyday-account/"},
+  {bank:"Bank Zero",account:"Personal",fee:0,transactionCost:0,includedTransactions:0,minSalary:0,type:"digital",notes:"Zero monthly fee • app-based",url:"https://www.bankzero.co.za/rates-and-pricing/"},
+  {bank:"Capitec",account:"Global One",fee:7.50,transactionCost:2,includedTransactions:5,minSalary:0,type:"traditional",notes:"Low monthly fee + PAYT",url:"https://apply.capitecbank.co.za/current-account/"},
+  {bank:"Absa",account:"Transact",fee:7,transactionCost:2.8,includedTransactions:0,minSalary:0,type:"traditional",notes:"Low-cost account",url:"https://www.absa.co.za/personal/bank/an-account/transact-account/"},
+  {bank:"FNB",account:"Easy PAYT",fee:7.5,transactionCost:2.5,includedTransactions:0,minSalary:0,type:"traditional",notes:"Pay-as-you-transact",url:"https://www.fnb.co.za/for-you/easy-smart-account/"},
+  {bank:"African Bank",account:"MyWORLD",fee:75,transactionCost:0,includedTransactions:25,minSalary:0,type:"traditional",notes:"Bundled account",url:"https://www.africanbank.co.za/en/home/banking/"},
+  {bank:"Standard Bank",account:"MyMo Plus",fee:125,transactionCost:0,includedTransactions:35,minSalary:0,type:"traditional",notes:"Bundle with transactions",url:"https://www.standardbank.co.za/southafrica/personal/products-and-services/bank-with-us/bank-accounts/our-accounts/mymoplusaccount"},
+  {bank:"Nedbank",account:"MiGoals",fee:105,transactionCost:0,includedTransactions:30,minSalary:0,type:"traditional",notes:"Goal-based banking",url:"https://www.nedbank.co.za"},
+  {bank:"FNB",account:"Premier",fee:265,transactionCost:0,includedTransactions:100,minSalary:25000,type:"premium",notes:"Premium benefits",url:"https://www.fnb.co.za/premier-select/premier-current-account.html"}
+];
+
+// Track clicks (console + placeholder for analytics)
+function trackAffiliateClick(bank, account){
+  console.log('affiliate_click', bank, account, new Date().toISOString());
+  // open analytics snippet here if you add GA later
+}
+
+// cost calculation
+function calculateTotal(account, transactions){
+  let total = account.fee || 0;
+  if(account.transactionCost && transactions > (account.includedTransactions||0)){
+    total += (transactions - (account.includedTransactions||0)) * account.transactionCost;
+  }
+  return total;
+}
+
+function renderResults(salary, transactions){
+  const results = document.getElementById('results');
+  const status = document.getElementById('status');
+  const filtered = ACCOUNTS.filter(a => (a.minSalary||0) <= salary);
+  if(filtered.length === 0){
+    status.textContent = 'No accounts match your salary. Try lowering salary filter.';
+    results.innerHTML = '<div class="card"><p style="padding:20px;color:#94a3b8;text-align:center">No accounts available.</p></div>';
+    return;
+  }
+  // compute totals
+  const mapped = filtered.map(a => ({...a, total: calculateTotal(a, transactions)})).sort((x,y)=>x.total - y.total);
+  status.textContent = `Showing ${mapped.length} accounts — sorted by estimated monthly cost.`;
+  // cheapest
+  const cheapest = mapped[0];
+  let html = '';
+  html += `<div class="card"><h3>Cheapest option: ${cheapest.bank} — ${cheapest.account} <span style="float:right;font-weight:700;color:#22c55e">R ${cheapest.total.toFixed(2)}</span></h3><p>${cheapest.notes}</p><p><a class="apply-btn" href="${addAffiliate(cheapest.url)}" target="_blank" rel="noopener noreferrer" onclick="trackAffiliateClick('${cheapest.bank}','${cheapest.account}')">Verify & Apply →</a></p></div>`;
+  // table for all
+  html += `<div class="card"><h3>All matching accounts</h3><table class="table"><thead><tr><th>Bank</th><th>Account</th><th>Monthly Fee</th><th>Est. Monthly Cost</th><th>Notes</th><th></th></tr></thead><tbody>`;
+  mapped.forEach(acc=>{
+    html += `<tr><td><strong>${acc.bank}</strong></td><td>${acc.account}</td><td>${acc.fee===0?'FREE':'R '+acc.fee.toFixed(2)}</td><td><strong>R ${acc.total.toFixed(2)}</strong></td><td>${acc.notes}</td><td><a class="apply-btn" href="${addAffiliate(acc.url)}" target="_blank" rel="noopener noreferrer" onclick="trackAffiliateClick('${acc.bank}','${acc.account}')">Verify & Apply</a></td></tr>`;
+  });
+  html += `</tbody></table></div>`;
+  results.innerHTML = html;
+}
+
+// event handlers
+document.getElementById('btnCompare').addEventListener('click', ()=>{
+  const salary = Number(document.getElementById('salary').value) || 0;
+  const transactions = Number(document.getElementById('transactions').value) || 15;
+  if(!salary || salary <= 0){ alert('Please enter a valid monthly salary'); return; }
+  renderResults(salary, transactions);
+});
+
+// init
+document.getElementById('status').textContent = `Using example fee data (${ACCOUNTS.length} accounts). Replace with live feed when ready.`;
+renderResults(18000, 15);
+</script>
 </body>
 </html>
