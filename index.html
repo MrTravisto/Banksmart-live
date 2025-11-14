@@ -1,66 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BankSmart — Compare SA Bank Fees (Heavy preset)</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>BankSmart — Compare SA Bank Fees</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="wrap">
-    <header class="hero">
-      <div class="brand"><div class="logo">B</div><h1>BankSmart</h1></div>
-      <p class="tagline">Compare South African bank accounts using realistic transaction patterns (Heavy user preset).</p>
-    </header>
+<h1>BankSmart</h1>
+<p>Compare South African Bank Fees</p>
 
-    <main class="card">
-      <section class="filters">
-        <div class="field">
-          <label for="salary">💰 Monthly Salary (ZAR)</label>
-          <input id="salary" type="number" value="18000" min="0" />
-        </div>
+<div class="card">
+  <label>Monthly Salary (ZAR)</label>
+  <input id="salary" type="number" value="18000" />
+  <button id="btnCompare">Compare</button>
+</div>
 
-        <div class="field">
-          <label for="debitOrders">🧾 Monthly Debit Orders</label>
-          <input id="debitOrders" type="number" value="8" min="0" />
-        </div>
+<div id="results"></div>
 
-        <div class="field">
-          <label for="cardSwipes">💳 Monthly Card Swipes / POS</label>
-          <input id="cardSwipes" type="number" value="40" min="0" />
-        </div>
-
-        <div class="field">
-          <label for="atmWithdrawals">🏧 ATM Withdrawals / month</label>
-          <input id="atmWithdrawals" type="number" value="4" min="0" />
-        </div>
-
-        <div class="field">
-          <label for="efts">📤 Monthly EFTs</label>
-          <input id="efts" type="number" value="8" min="0" />
-        </div>
-
-        <div class="field">
-          <label for="cashDeposits">💵 Cash Deposits (month)</label>
-          <input id="cashDeposits" type="number" value="1" min="0" />
-        </div>
-
-        <div class="actions">
-          <button id="btnCompare" class="btn">Compare Accounts</button>
-          <button id="btnReset" class="btn ghost">Reset</button>
-        </div>
-      </section>
-
-      <section id="status" class="summary">Using example bank fees — always verify with banks.</section>
-
-      <section id="results"></section>
-    </main>
-
-    <footer class="footer">
-      <p>BankSmart — estimates only. Fee data is illustrative and must be verified with banks.</p>
-      <p>Built by BankSmart</p>
-    </footer>
-  </div>
+<footer>Built & maintained by Trevor Barnard</footer>
 
 <script src="script.js"></script>
 </body>

@@ -1,0 +1,93 @@
+[
+  {
+    "bank": "FNB",
+    "account": "Easy PAYT",
+    "fee": 7.5,
+    "minSalary": 0,
+    "notes": "Pay-as-you-transact"
+  },
+  {
+    "bank": "FNB",
+    "account": "Easy Bundle",
+    "fee": 73.5,
+    "minSalary": 0,
+    "notes": "Bundled - includes transactions"
+  },
+  {
+    "bank": "FNB",
+    "account": "Premier",
+    "fee": 265,
+    "minSalary": 25000,
+    "notes": "Premium account"
+  },
+  {
+    "bank": "Absa",
+    "account": "Transact",
+    "fee": 7.0,
+    "minSalary": 0,
+    "notes": "Entry-level account"
+  },
+  {
+    "bank": "Absa",
+    "account": "Premium Bundle",
+    "fee": 435,
+    "minSalary": 40000,
+    "notes": "Premium"
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo",
+    "fee": 4.95,
+    "minSalary": 0,
+    "notes": "Digital entry-level"
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo Plus",
+    "fee": 125,
+    "minSalary": 0,
+    "notes": "Bundled account"
+  },
+  {
+    "bank": "Nedbank",
+    "account": "MiGoals",
+    "fee": 105,
+    "minSalary": 0,
+    "notes": "Goal-based bundle"
+  },
+  {
+    "bank": "Nedbank",
+    "account": "Savvy Bundle",
+    "fee": 245,
+    "minSalary": 15000,
+    "notes": "Premium bundle"
+  },
+  {
+    "bank": "Capitec",
+    "account": "Global One",
+    "fee": 7.5,
+    "minSalary": 0,
+    "notes": "Low monthly fee"
+  },
+  {
+    "bank": "TymeBank",
+    "account": "EveryDay",
+    "fee": 0,
+    "minSalary": 0,
+    "notes": "Zero monthly fee"
+  },
+  {
+    "bank": "Bank Zero",
+    "account": "Personal",
+    "fee": 0,
+    "minSalary": 0,
+    "notes": "Zero monthly fee"
+  },
+  {
+    "bank": "African Bank",
+    "account": "MyWORLD",
+    "fee": 75,
+    "minSalary": 0,
+    "notes": "Bundle account"
+  }
+]

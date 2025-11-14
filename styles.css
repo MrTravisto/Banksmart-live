@@ -1,0 +1,5 @@
+body{background:#0f172a;color:#fff;font-family:sans-serif;padding:20px;}
+.card{background:#0e1426;padding:20px;border-radius:10px;margin-bottom:20px;}
+button{padding:10px 20px;background:#22c55e;border:0;color:#fff;border-radius:6px;font-weight:bold;}
+table{width:100%;border-collapse:collapse;margin-top:20px;background:#0b1220;}
+th,td{padding:10px;border-bottom:1px solid #1e293b;}
