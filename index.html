@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BankSmart — Compare SA Bank Fees (Option B)</title>
+<title>BankSmart — Compare SA Bank Fees</title>
 <style>
 :root{
   --bg:#0b1020; --card:#0e1426; --muted:#94a3b8; --text:#e5e7eb; --accent:#22c55e;
@@ -35,7 +35,7 @@ input{padding:12px 14px;border-radius:8px;border:1px solid #334155;background:#0
   <div class="wrap">
     <div class="hero card">
       <h1>BankSmart</h1>
-      <p style="color:var(--muted);margin-top:8px">Salary-based matching of South African bank accounts — Option B</p>
+      <p style="color:var(--muted);margin-top:8px">Salary-based matching of South African bank accounts —</p>
     </div>
 
     <div class="card">
@@ -72,7 +72,7 @@ input{padding:12px 14px;border-radius:8px;border:1px solid #334155;background:#0
   </div>
 
 <script>
-// ===== ACCOUNTS DATA (Option B: Salary matching) =====
+// ===== ACCOUNTS DATA: Salary matching) =====
 const ACCOUNTS = [
   // Budget (everyone)
   { bank:"Bank Zero", account:"Personal", fee:0, minSalary:0, notes:"Zero monthly fee • App-based", url:"https://www.bankzero.co.za/rates-and-pricing/?ref=BankSmart" },
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   salaryInput.value = '';
   btnCompare.disabled = true;
   updateTrackingPanel();
-  console.log('BankSmart Option B loaded — salary-matching. Built for Trevor Barnard.');
+  console.log('BankSmart loaded — salary-matching. Built for Trevor Barnard.');
 });
 </script>
 </body>

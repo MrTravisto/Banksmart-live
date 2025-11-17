@@ -1,4 +1,4 @@
-BankSmart — Option B (Salary matching)
+BankSmart — (Salary matching)
 Files:
 - index.html : main site file
 
