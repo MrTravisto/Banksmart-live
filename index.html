@@ -10,240 +10,180 @@
   --card: #0e1426; 
   --muted: #94a3b8;
   --text: #e5e7eb;
-  --accent: #22c55e;
   --table: #0b1220;
+  --accent: #22c55e;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  background: linear-gradient(180deg, #0b1020, #0f172a);
+  font-family: Inter, sans-serif;
+  background: #0f172a;
   color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
+  margin: 0;
 }
-
-.wrap { max-width: 1100px; margin: 24px auto; padding: 18px; }
-
-.card { background: var(--card); border: 1px solid #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-
-.hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(34,197,94,0.1), transparent); border-radius: 16px; margin-bottom: 30px; }
-
-.hero h1 { font-size: 2.5rem; margin-bottom: 12px; background: linear-gradient(135deg,#22c55e,#3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-.controls { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:20px; }
-
-.field { display:flex; flex-direction:column; gap:8px; flex:1; min-width:200px; }
-
-label { font-size:14px; color:var(--muted); font-weight:500; }
-
-input { padding:12px 16px; border-radius:8px; border:1px solid #334155; background:#0b1220; color:#fff; font-size:16px; transition:all .2s; }
-
-input:focus { border-color:#22c55e; outline:none; box-shadow:0 0 0 3px rgba(34,197,94,0.1); }
-
-.btn { padding:12px 24px; border-radius:8px; border:0; background:linear-gradient(135deg,#22c55e,#16a34a); color:#fff; cursor:pointer; font-weight:600; font-size:16px; transition:all .2s; align-self:flex-end; }
-
-.btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(34,197,94,0.3); }
-
-.table { width:100%; margin-top:20px; border-collapse:collapse; background:var(--table); border-radius:8px; overflow:hidden; }
-
-.table th,.table td { padding:16px; text-align:left; border-bottom:1px solid #1e293b; }
-
-.table th { background:#0a1222; color:#93c5fd; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
-
-.best { background: linear-gradient(135deg,#0e1426,#0b1220); border:2px solid #22c55e; position:relative; }
-
-.best-badge { position:absolute; top:-10px; right:20px; background:linear-gradient(135deg,#22c55e,#16a34a); color:white; padding:4px 12px; border-radius:6px; font-size:12px; font-weight:bold; }
-
-.summary { color:var(--muted); margin:16px 0; text-align:center; font-size:14px; }
-
-.apply-btn { background:rgba(34,197,94,0.1); color:#22c55e; padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block; border:1px solid #22c55e; transition:all .2s; }
-
+.wrap {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 18px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+}
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), transparent);
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #22c55e, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.controls {
+  display: flex;
+  gap: 16px;
+}
+input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: white;
+  font-size: 16px;
+}
+.btn {
+  padding: 14px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #22c55e;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+.summary { margin: 16px 0; color: #94a3b8; text-align:center; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+.table th, .table td {
+  padding: 14px;
+  border-bottom: 1px solid #1e293b;
+}
+.table th {
+  color: #93c5fd;
+  background: #0a1222;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.apply-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  text-decoration: none;
+  font-size: 14px;
+}
 .apply-btn:hover { background:#22c55e; color:white; }
-
-.footer { text-align:center; padding:30px 20px; margin-top:40px; border-top:1px solid #1e293b; color:var(--muted); }
-
-.credits { background:linear-gradient(135deg,#6366f1,#8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600; font-size:15px; }
-
-.tracking-panel { background: rgba(30,41,59,0.5); border:1px solid #334155; border-radius:8px; padding:12px; margin:10px 0; font-size:12px; color:var(--muted); }
-
-@media (max-width:768px) {
-  .controls { flex-direction:column; }
-  .btn { align-self:stretch; }
-  .table th,.table td { padding:12px 8px; }
-}
+.footer { text-align:center; margin-top:30px; padding:20px; color:#94a3b8; }
 </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <h1>BankSmart</h1>
-      <p>Compare South African Bank Fees & Save Money</p>
-    </div>
+<div class="wrap">
 
-    <div class="card">
-      <div class="controls">
-        <div class="field">
-          <label for="salary">💰 Monthly Salary (ZAR)</label>
-          <input id="salary" type="number" placeholder="e.g., 18000" />
-        </div>
-        <div class="field">
-          <label for="transactions">💳 Monthly Transactions</label>
-          <input id="transactions" type="number" placeholder="e.g., 12" />
-        </div>
-        <button id="btnCompare" class="btn">Compare Accounts</button>
-      </div>
-
-      <div id="status" class="summary">Enter salary & transactions, then click Compare Accounts.</div>
-
-      <div id="results"></div>
-
-      <div class="tracking-panel" id="trackingPanel" style="display:none;">
-        <strong>Tracking:</strong>
-        <div id="trackingStats">No clicks yet.</div>
-        <div style="margin-top:8px;font-size:12px;color:var(--muted);">Use <code>exportTrackingData()</code> in console to download CSV.</div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <p class="credits">Built and maintained by Trevor Barnard</p>
-      <p style="font-size:12px;margin-top:8px;"><em>We may earn commissions from partner banks.</em></p>
-    </footer>
+  <div class="hero">
+    <h1>BankSmart</h1>
+    <p>Compare South African Bank Fees & Save Money</p>
   </div>
 
+  <div class="card">
+    <div class="controls">
+      <input id="salary" type="number" placeholder="Enter your monthly salary (R)" />
+      <button id="compareBtn" class="btn">Compare</button>
+    </div>
+
+    <div id="status" class="summary"></div>
+    <div id="results"></div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  Built and maintained by <strong>Trevor Barnard</strong><br>
+  <small>We may earn a commission when you apply through our links.</small>
+</footer>
+
 <script>
-// ACCOUNTS including FNB Aspire and Fusion
+// ACCOUNT DATA
 const ACCOUNTS = [
-  {bank:"TymeBank",account:"EveryDay",fee:0,minSalary:0,included:0,txCost:0,notes:"Zero monthly fee • Digital",url:"https://www.tymebank.co.za"},
-  {bank:"Bank Zero",account:"Personal",fee:0,minSalary:0,included:0,txCost:0,notes:"Zero monthly fee • App",url:"https://www.bankzero.co.za"},
-  {bank:"Capitec",account:"Global One",fee:7.5,minSalary:0,included:5,txCost:2,notes:"Low fee + PAYT",url:"https://apply.capitecbank.co.za"},
-  {bank:"Absa",account:"Transact",fee:6.5,minSalary:0,included:0,txCost:2.8,notes:"Value account",url:"https://www.absa.co.za"},
-  {bank:"FNB",account:"Easy PAYT",fee:7.5,minSalary:0,included:0,txCost:2.5,notes:"Pay-as-you-transact",url:"https://www.fnb.co.za"},
-  // Aspire & Fusion added
-  {bank:"FNB",account:"Aspire",fee:109,minSalary:6000,included:50,txCost:0,notes:"Aspire — 50 free transactions • eBucks",url:"https://www.fnb.co.za/for-you/aspire-account/"},
-  {bank:"FNB",account:"Fusion",fee:149,minSalary:10000,included:80,txCost:0,notes:"Fusion — bundled benefits • higher tier",url:"https://www.fnb.co.za/for-you/fusion-account/"},
-  {bank:"Standard Bank",account:"MyMo Plus",fee:115,minSalary:0,included:35,txCost:0,notes:"Mobile-focused bundle",url:"https://www.standardbank.co.za"},
-  {bank:"Nedbank",account:"MiGoals",fee:99,minSalary:0,included:30,txCost:0,notes:"Goal-based bundle",url:"https://www.nedbank.co.za"},
-  {bank:"African Bank",account:"MyWORLD",fee:69,minSalary:0,included:25,txCost:0,notes:"Bundle account",url:"https://www.africanbank.co.za"},
-  {bank:"Discovery",account:"Gold PAYT",fee:32.5,minSalary:0,included:0,txCost:2.5,notes:"Vitality rewards",url:"https://www.discovery.co.za"},
-  {bank:"Investec",account:"Private",fee:675,minSalary:80000,included:200,txCost:0,notes:"Private banking",url:"https://www.investec.com"}
+  { bank:"Bank Zero", account:"Personal", fee:0, minSalary:0, notes:"Zero monthly fee", url:"https://www.bankzero.co.za" },
+  { bank:"Capitec", account:"Global One", fee:7.5, minSalary:0, notes:"Low cost account", url:"https://apply.capitecbank.co.za" },
+  { bank:"Absa", account:"Transact", fee:6.5, minSalary:0, notes:"Affordable everyday banking", url:"https://www.absa.co.za" },
+  { bank:"FNB", account:"Easy PAYT", fee:7.5, minSalary:0, notes:"Pay as you transact", url:"https://www.fnb.co.za" },
+
+  { bank:"FNB", account:"Aspire", fee:109, minSalary:6000, notes:"Includes eBucks & benefits", url:"https://www.fnb.co.za/aspire" },
+
+  { bank:"Capitec", account:"Fusion", fee:30, minSalary:3000, notes:"Credit + debit combined", url:"https://apply.capitecbank.co.za" },
+
+  { bank:"FNB", account:"Premier", fee:265, minSalary:25000, notes:"Premium benefits", url:"https://www.fnb.co.za" }
 ];
 
-// Affiliate tracking (localStorage)
-function trackClick(bank, account, url) {
-  const ts = new Date().toISOString();
-  const salary = document.getElementById('salary').value || 'unknown';
-  const tx = document.getElementById('transactions').value || 'unknown';
-  const click = {bank,account,url,salary,tx,ts};
-  const arr = JSON.parse(localStorage.getItem('bs_clicks')||'[]');
-  arr.push(click);
-  localStorage.setItem('bs_clicks', JSON.stringify(arr));
-  updateTrackingPanel();
-  console.log("Tracked click:", click);
+function trackClick(bank, account){
+  const log = JSON.parse(localStorage.getItem("bankSmartClicks")||"[]");
+  log.push({bank,account,time:new Date().toLocaleString()});
+  localStorage.setItem("bankSmartClicks",JSON.stringify(log));
 }
 
-// Update tracking UI
-function updateTrackingPanel() {
-  const arr = JSON.parse(localStorage.getItem('bs_clicks')||'[]');
-  const panel = document.getElementById('trackingPanel');
-  const stats = document.getElementById('trackingStats');
-  if (arr.length === 0) {
-    panel.style.display = 'none';
+document.getElementById("compareBtn").addEventListener("click",()=>{
+
+  const salary = Number(document.getElementById("salary").value);
+
+  if(!salary || salary<=0){
+    alert("Enter a valid salary");
     return;
   }
-  panel.style.display = 'block';
-  const counts = {};
-  arr.forEach(c => counts[c.bank] = (counts[c.bank]||0)+1);
-  let html = `<strong>Total clicks:</strong> ${arr.length}<br>`;
-  Object.keys(counts).forEach(b=> html += `${b}: ${counts[b]} clicks<br>`);
-  stats.innerHTML = html;
-}
 
-// Export tracking CSV (call from console)
-function exportTrackingData() {
-  const arr = JSON.parse(localStorage.getItem('bs_clicks')||'[]');
-  if (!arr.length) { alert('No tracking data'); return; }
-  let csv = 'timestamp,bank,account,url,salary,transactions\n';
-  arr.forEach(r=> csv += `${r.ts},${r.bank},${r.account},${r.url},${r.salary},${r.tx}\n`);
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `banksmart_clicks_${new Date().toISOString().slice(0,10)}.csv`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
+  const matches = ACCOUNTS
+    .filter(a => salary >= a.minSalary)
+    .sort((a,b)=>a.fee - b.fee);
 
-// Clear tracking data (call from console)
-function clearTrackingData() {
-  localStorage.removeItem('bs_clicks');
-  updateTrackingPanel();
-  alert('Tracking data cleared');
-}
+  document.getElementById("status").innerHTML =
+    `Showing ${matches.length} matching accounts for salary <strong>R${salary.toLocaleString()}</strong>+`;
 
-// Compute total monthly cost (fee + extra tx costs)
-function totalCost(acc, txCount) {
-  const extra = Math.max(0, txCount - (acc.included||0));
-  return (acc.fee || 0) + (extra * (acc.txCost || 0));
-}
-
-// Render results
-function render(accounts, salary, txCount) {
-  const results = document.getElementById('results');
-  const matches = accounts.filter(a => (a.minSalary||0) <= salary);
-  if (!matches.length) {
-    results.innerHTML = '<div class="card"><p style="padding:20px;color:#94a3b8;text-align:center">No accounts match your salary. Try a different amount.</p></div>';
-    document.getElementById('status').textContent = 'No matches';
-    return;
-  }
-  matches.forEach(a => a._total = totalCost(a, txCount||0));
-  matches.sort((x,y)=> x._total - y._total);
-  const best = matches[0];
   let html = `
-    <div class="card best">
-      <div class="best-badge">BEST MATCH</div>
-      <h3>${best.bank} — ${best.account}</h3>
-      <p><strong>Monthly fee:</strong> ${best.fee===0 ? 'FREE' : 'R '+best.fee.toFixed(2)}</p>
-      <p>${best.notes||''}</p>
-      <p><a href="${best.url||'#'}" target="_blank" class="apply-btn" onclick="trackClick('${best.bank}','${best.account}','${best.url}')">Apply Now →</a></p>
-    </div>
+  <table class="table">
+    <tr>
+      <th>Bank</th>
+      <th>Account</th>
+      <th>Fee</th>
+      <th>Notes</th>
+      <th></th>
+    </tr>
   `;
-  if (matches.length>1) {
-    html += `<div class="card"><h3>Other matching accounts (${matches.length-1})</h3><table class="table"><thead><tr><th>Bank</th><th>Account</th><th>Monthly Fee</th><th>Estimated Total</th><th>Notes</th><th></th></tr></thead><tbody>`;
-    matches.slice(1).forEach(a=>{
-      html += `<tr>
-        <td><strong>${a.bank}</strong></td>
+
+  matches.forEach(a=>{
+    html += `
+      <tr>
+        <td>${a.bank}</td>
         <td>${a.account}</td>
-        <td>${a.fee===0?'FREE':'R '+a.fee.toFixed(2)}</td>
-        <td>R ${a._total.toFixed(2)}</td>
-        <td>${a.notes||''}</td>
-        <td><a class="apply-btn" href="${a.url||'#'}" target="_blank" onclick="trackClick('${a.bank}','${a.account}','${a.url}')">Apply →</a></td>
-      </tr>`;
-    });
-    html += `</tbody></table></div>`;
-  }
-  results.innerHTML = html;
-  document.getElementById('status').textContent = `Showing ${matches.length} matching accounts (based on salary).`;
-  updateTrackingPanel();
-}
+        <td>${a.fee===0?"FREE":"R "+a.fee.toFixed(2)}</td>
+        <td>${a.notes}</td>
+        <td><a class="apply-btn" href="${a.url}" target="_blank" onclick="trackClick('${a.bank}','${a.account}')">Apply</a></td>
+      </tr>
+    `;
+  });
 
-// Event handlers
-document.getElementById('btnCompare').addEventListener('click', ()=>{
-  const salary = Number(document.getElementById('salary').value) || 0;
-  const tx = Number(document.getElementById('transactions').value) || 0;
-  if (!salary || salary<=0) { alert('Please enter a valid monthly salary (R)'); return; }
-  render(ACCOUNTS, salary, tx);
-});
-
-document.getElementById('salary').addEventListener('keypress', (e)=>{ if(e.key==='Enter') document.getElementById('btnCompare').click(); });
-document.getElementById('transactions').addEventListener('keypress', (e)=>{ if(e.key==='Enter') document.getElementById('btnCompare').click(); });
-
-// Auto-run demo (optional)
-document.addEventListener('DOMContentLoaded', ()=> {
-  // leave inputs empty until user interacts
-  updateTrackingPanel();
+  html += "</table>";
+  document.getElementById("results").innerHTML = html;
 });
 </script>
+
 </body>
 </html>
