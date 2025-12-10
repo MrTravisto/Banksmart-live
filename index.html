@@ -3,34 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BankSmart — Compare SA Bank Fees</title>
-<style>
-:root{
-  --bg:#0b1020; --card:#0e1426; --muted:#94a3b8; --text:#e5e7eb; --accent:#22c55e;
-  --table:#0b1220; --accent-2:#3b82f6;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
-.wrap{max-width:1100px;margin:28px auto;padding:18px;}
-.card{background:var(--card);border:1px solid #1e293b;border-radius:12px;padding:20px;margin-bottom:20px}
-.hero{text-align:center;padding:36px 20px;border-radius:12px;margin-bottom:18px;background:linear-gradient(135deg, rgba(34,197,94,0.06), transparent)}
-.hero h1{font-size:2.2rem;background:linear-gradient(135deg,#22c55e,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end}
-.field{display:flex;flex-direction:column;gap:8px;min-width:200px;flex:1}
-label{font-size:13px;color:var(--muted);font-weight:600}
-input{padding:12px 14px;border-radius:8px;border:1px solid #334155;background:#071022;color:var(--text);font-size:15px}
-.btn{padding:12px 20px;border-radius:8px;border:0;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;cursor:pointer;font-weight:700}
-.btn:disabled{opacity:.6;cursor:not-allowed}
-.summary{color:var(--muted);margin:12px 0;text-align:center;font-size:14px}
-.table{width:100%;margin-top:14px;border-collapse:collapse;background:var(--table);border-radius:8px;overflow:hidden}
-.table th,.table td{padding:14px;text-align:left;border-bottom:1px solid #1e293b;font-size:14px}
-.table th{background:#071129;color:#93c5fd;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-.apply-btn{background:rgba(34,197,94,0.08);color:var(--accent);padding:8px 12px;border-radius:6px;border:1px solid var(--accent);text-decoration:none;font-weight:700}
-.footer{text-align:center;padding:24px 20px;margin-top:20px;border-top:1px solid #1e293b;color:var(--muted)}
-.tracking-panel{background:rgba(30,41,59,0.5);border:1px solid #334155;border-radius:8px;padding:12px;margin-top:12px;color:var(--muted);font-size:13px}
-@media (max-width:768px){.controls{flex-direction:column}.field{min-width:100%}.btn{align-self:stretch}}
-</style>
-
+<title>BankSmart — Find Your Perfect Bank Account Match</title>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5TSEVEZFH"></script>
 <script>
@@ -39,195 +12,46 @@ input{padding:12px 14px;border-radius:8px;border:1px solid #334155;background:#0
   gtag('js', new Date());
   gtag('config', 'G-D5TSEVEZFH');
 </script>
-
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="wrap">
     <div class="hero card">
       <h1>BankSmart</h1>
-      <p style="color:var(--muted);margin-top:8px">Salary-based matching of South African bank accounts —</p>
+      <p>Find Your Perfect Bank Account Match</p>
+      <small style="color: var(--muted); display: block; margin-top: 10px;">
+        Get personalised account recommendations based on your salary.
+      </small>
     </div>
 
     <div class="card">
+      <h2 style="margin-bottom: 20px; color: var(--text);">Compare Bank Accounts</h2>
       <div class="controls">
         <div class="field">
-          <label for="salary">💰 Monthly Salary (ZAR)</label>
-          <input id="salary" type="number" placeholder="e.g., 18000" inputmode="numeric" />
+          <label for="salary">💰 Your Monthly Income (ZAR)</label>
+          <input id="salary" type="number" placeholder="Enter gross monthly amount" value="" />
         </div>
-
-        <button id="btnCompare" class="btn" disabled>Compare Accounts</button>
+        <button id="btnCompare" class="btn">Compare Bank Accounts</button>
       </div>
-
-      <div id="status" class="summary">Enter your monthly salary and press <strong>Compare Accounts</strong>.</div>
-
+      <div id="status" class="summary"></div>
       <div id="results"></div>
-
-      <div class="tracking-panel" id="trackingPanel" style="display:none;">
-        <strong>📊 Affiliate tracking active</strong>
-        <div id="trackingStats" style="margin-top:8px">No clicks yet.</div>
-        <div style="margin-top:8px">
-          <button id="exportCsv" class="btn" style="background:linear-gradient(135deg,#3b82f6,#6366f1)">Export CSV</button>
-          <button id="clearTracking" class="btn" style="background:linear-gradient(135deg,#ef4444,#f97316);margin-left:8px">Clear</button>
-        </div>
-      </div>
-
     </div>
 
-    <footer class="footer">
-      <div>BankSmart helps you compare bank fees across South African banks.</div>
-      <div style="margin-top:6px"><strong>Always verify fees on official bank websites.</strong></div>
-      <div style="margin-top:8px;font-weight:700;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built and maintained by Trevor Barnard</div>
-      <div style="margin-top:8px;font-size:13px;color:var(--muted)"><em>We may earn commissions from partner banks — this supports the site.</em></div>
+    <footer>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <p>&copy; 2025 BankSmart. All rights reserved.</p>
+        <p style="font-size: 14px; margin: 10px 0;">
+          BankSmart provides comparison services for informational purposes. Always verify fees directly with financial institutions.
+        </p>
+        <p style="margin: 15px 0;">
+          <a href="privacy-policy.html">Privacy Policy</a> |
+          <a href="terms-of-service.html">Terms of Service</a> |
+          <a href="disclaimer.html">Disclaimer</a>
+        </p>
+      </div>
     </footer>
   </div>
 
-<script>
-// ===== ACCOUNTS DATA: Salary matching) =====
-const ACCOUNTS = [
-  // Budget (everyone)
-  { bank:"Bank Zero", account:"Personal", fee:0, minSalary:0, notes:"Zero monthly fee • App-based", url:"https://www.bankzero.co.za/rates-and-pricing/?ref=BankSmart" },
-  { bank:"TymeBank", account:"EveryDay", fee:0, minSalary:0, notes:"Zero monthly fee • Digital-first", url:"https://www.tymebank.co.za/personal-banking/accounts/everyday-account/" },
-  { bank:"Spot Money", account:"Digital", fee:0, minSalary:0, notes:"Zero monthly fee • App-based", url:"https://www.spotmoney.com/" },
-  { bank:"Capitec", account:"Global One", fee:7.50, minSalary:0, notes:"Low fee + pay-as-you-transact", url:"https://apply.capitecbank.co.za/current-account/?source=BankSmart&affiliate=BS001" },
-  { bank:"Absa", account:"Transact", fee:7, minSalary:0, notes:"Value account • Low fees", url:"https://www.absa.co.za/personal/bank/an-account/transact-account/?utm_source=BankSmart" },
-  { bank:"FNB", account:"Easy PAYT", fee:7.50, minSalary:0, notes:"Pay-as-you-transact", url:"https://www.fnb.co.za/for-you/easy-smart-account/?utm_source=BankSmart" },
-
-  // Mainstream (R5,000+)
-  { bank:"FNB", account:"Easy Bundled", fee:73.50, minSalary:5000, notes:"Bundled account • 30 free tx", url:"https://www.fnb.co.za/for-you/easy-smart-account/?utm_source=BankSmart" },
-  { bank:"FNB", account:"Aspire", fee:109, minSalary:6000, notes:"Mid-range • 50 free tx • eBucks", url:"https://www.fnb.co.za/for-you/aspire-account/?utm_source=BankSmart" },
-  { bank:"FNB", account:"Fusion", fee:139, minSalary:10000, notes:"Fusion bundle • extra perks", url:"https://www.fnb.co.za/for-you/fusion-account" },
-  { bank:"African Bank", account:"MyWORLD", fee:75, minSalary:5000, notes:"Bundle account • Savings pockets", url:"https://www.africanbank.co.za/en/home/banking/" },
-  { bank:"Standard Bank", account:"MyMo Plus", fee:115, minSalary:6000, notes:"Mobile bundle • 35 free tx", url:"https://www.standardbank.co.za" },
-  { bank:"Nedbank", account:"MiGoals", fee:105, minSalary:6000, notes:"Goal-based • 30 free tx", url:"https://www.nedbank.co.za" },
-  { bank:"Absa", account:"Gold Value Bundle", fee:110, minSalary:8000, notes:"Value bundle • 40 free tx", url:"https://www.absa.co.za" },
-  { bank:"Standard Bank", account:"Smart Account", fee:95, minSalary:8000, notes:"20 free tx", url:"https://www.standardbank.co.za" },
-
-  // Premium (R25,000+)
-  { bank:"FNB", account:"Premier", fee:265, minSalary:25000, notes:"Premium benefits • Travel insurance", url:"https://www.fnb.co.za/premier-select/premier-current-account.html?utm_source=BankSmart" },
-  { bank:"Standard Bank", account:"Prestige Plus", fee:349, minSalary:35000, notes:"Concierge • Enhanced rewards", url:"https://www.standardbank.co.za" },
-  { bank:"Absa", account:"Premier Bundle", fee:399, minSalary:40000, notes:"Comprehensive bundle • Priority service", url:"https://www.absa.co.za/personal/bank/an-account/premier/" },
-  { bank:"Investec", account:"Private Bank", fee:675, minSalary:80000, notes:"Private banking • Dedicated banker", url:"https://www.investec.com" },
-  { bank:"FNB", account:"Private Wealth", fee:1250, minSalary:150000, notes:"Ultra-premium • Personal banker", url:"https://www.fnb.co.za/private-banking/private-wealth-banking.html" }
-];
-
-// ===== Tracking (localStorage) =====
-function trackAffiliateClick(bank, account, url) {
-  const salary = document.getElementById('salary').value || '';
-  const ts = new Date().toISOString();
-  const click = { bank, account, url, salary, ts };
-  const arr = JSON.parse(localStorage.getItem('banksmart_clicks')||'[]');
-  arr.push(click);
-  localStorage.setItem('banksmart_clicks', JSON.stringify(arr));
-  updateTrackingPanel();
-  // open url in new tab after tracking
-  window.open(url, '_blank', 'noopener');
-}
-
-// update tracking UI
-function updateTrackingPanel() {
-  const arr = JSON.parse(localStorage.getItem('banksmart_clicks')||'[]');
-  const panel = document.getElementById('trackingPanel');
-  const stats = document.getElementById('trackingStats');
-  if (arr.length===0) {
-    panel.style.display='none';
-    return;
-  }
-  panel.style.display='block';
-  const counts = arr.reduce((acc,c)=>{ acc[c.bank]=(acc[c.bank]||0)+1; return acc; },{});
-  let html = `<div><strong>Total clicks:</strong> ${arr.length}</div><div style="margin-top:6px">`;
-  Object.keys(counts).forEach(b=> html += `${b}: ${counts[b]} clicks<br>`);
-  html += `</div><div style="margin-top:8px;font-size:12px;color:var(--muted)">Open console for full data or export CSV.</div>`;
-  stats.innerHTML = html;
-}
-
-// export CSV
-function exportCsv() {
-  const arr = JSON.parse(localStorage.getItem('banksmart_clicks')||'[]');
-  if (!arr.length) { alert('No click data'); return; }
-  let csv = 'timestamp,bank,account,salary,url\n';
-  arr.forEach(r => csv += `${r.ts},${r.bank},${r.account},${r.salary},"${r.url}"\n`);
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'banksmart_clicks_'+(new Date().toISOString().slice(0,10))+'.csv';
-  document.body.appendChild(a); a.click(); a.remove();
-}
-
-// clear tracking
-function clearTracking() {
-  if (!confirm('Clear all local tracking data?')) return;
-  localStorage.removeItem('banksmart_clicks');
-  updateTrackingPanel();
-}
-
-// ===== Render logic (salary-only matching) =====
-function renderResultsForSalary(salary) {
-  const status = document.getElementById('status');
-  if (!salary || salary<=0) {
-    status.textContent = 'Enter a valid salary to see matching accounts.';
-    document.getElementById('results').innerHTML = '';
-    return;
-  }
-  // filter accounts where minSalary <= salary
-  const matches = ACCOUNTS.filter(a => (a.minSalary||0) <= salary);
-  if (!matches.length) {
-    status.textContent = `No accounts match R${salary.toLocaleString()} salary.`;
-    document.getElementById('results').innerHTML = '';
-    return;
-  }
-  status.textContent = `Showing ${matches.length} account(s) for R${salary.toLocaleString()}+ salary.`;
-  // sort by fee ascending
-  matches.sort((a,b)=> (a.fee||0) - (b.fee||0));
-  // build table output (no "best match" visible)
-  let html = '<div class="card"><h3 style="margin-bottom:8px">Matching Accounts</h3>';
-  html += `<table class="table"><thead><tr><th>Bank</th><th>Account</th><th>Monthly Fee</th><th>Notes</th><th>Action</th></tr></thead><tbody>`;
-  matches.forEach(acc=>{
-    const feeText = (acc.fee===0) ? 'FREE' : 'R ' + Number(acc.fee).toFixed(2);
-    html += `<tr>
-      <td><strong>${escapeHtml(acc.bank)}</strong></td>
-      <td>${escapeHtml(acc.account)}</td>
-      <td>${feeText}</td>
-      <td>${escapeHtml(acc.notes||'')}</td>
-      <td><button class="apply-btn" onclick="trackAffiliateClick('${escapeJs(acc.bank)}','${escapeJs(acc.account)}','${escapeJs(acc.url)}')">Apply →</button></td>
-    </tr>`;
-  });
-  html += '</tbody></table></div>';
-  document.getElementById('results').innerHTML = html;
-}
-
-// Simple escaping helpers to keep inserted strings safe inside attributes and HTML
-function escapeHtml(s){ if(!s && s!==0) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function escapeJs(s){ if(!s && s!==0) return ''; return String(s).replace(/'/g,"\\'").replace(/"/g,'\\"'); }
-
-// UI wiring
-const salaryInput = document.getElementById('salary');
-const btnCompare = document.getElementById('btnCompare');
-salaryInput.addEventListener('input', ()=> {
-  const v = Number(salaryInput.value);
-  btnCompare.disabled = !(v>0);
-});
-btnCompare.addEventListener('click', ()=> {
-  const s = Number(salaryInput.value);
-  if (!(s>0)) { alert('Please enter a valid monthly salary (R).'); return; }
-  renderResultsForSalary(s);
-  updateTrackingPanel();
-});
-
-// allow Enter key
-salaryInput.addEventListener('keypress', (e)=> { if (e.key==='Enter') btnCompare.click(); });
-
-// tracking buttons
-document.getElementById('exportCsv').addEventListener('click', exportCsv);
-document.getElementById('clearTracking').addEventListener('click', clearTracking);
-
-// init: optional demo salary
-document.addEventListener('DOMContentLoaded', ()=> {
-  // default demo value to help user — do not auto-run unless desired
-  salaryInput.value = '';
-  btnCompare.disabled = true;
-  updateTrackingPanel();
-  console.log('BankSmart loaded — salary-matching. Built for Trevor Barnard.');
-});
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
