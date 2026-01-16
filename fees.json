@@ -1,0 +1,245 @@
+[
+  {
+    "bank": "TymeBank",
+    "account": "EveryDay",
+    "fee": 0,
+    "ownATM": 8,
+    "otherATM": 10,
+    "cashAtTill": 2,
+    "minIncome": 0
+  },
+  {
+    "bank": "TymeBank",
+    "account": "More",
+    "fee": 10,
+    "ownATM": 8,
+    "otherATM": 10,
+    "cashAtTill": 2,
+    "minIncome": 0
+  },
+  {
+    "bank": "Bank Zero",
+    "account": "Transactional",
+    "fee": 0,
+    "ownATM": 7,
+    "otherATM": 9,
+    "cashAtTill": 2,
+    "minIncome": 0
+  },
+  {
+    "bank": "Capitec",
+    "account": "Global One",
+    "fee": 7.5,
+    "ownATM": 6,
+    "otherATM": 8.5,
+    "cashAtTill": 2,
+    "minIncome": 0
+  },
+  {
+    "bank": "Capitec",
+    "account": "Global One Plus",
+    "fee": 12,
+    "ownATM": 6,
+    "otherATM": 8.5,
+    "cashAtTill": 2,
+    "minIncome": 5000
+  },
+  {
+    "bank": "FNB",
+    "account": "Easy PAYU",
+    "fee": 7.5,
+    "ownATM": 7.5,
+    "otherATM": 11,
+    "cashAtTill": 2,
+    "minIncome": 0
+  },
+  {
+    "bank": "FNB",
+    "account": "Easy Smart Option",
+    "fee": 69,
+    "ownATM": 7.5,
+    "otherATM": 11,
+    "cashAtTill": 2,
+    "minIncome": 5000
+  },
+  {
+    "bank": "FNB",
+    "account": "Aspire",
+    "fee": 115,
+    "ownATM": 7.5,
+    "otherATM": 11,
+    "cashAtTill": 2,
+    "minIncome": 15000
+  },
+  {
+    "bank": "FNB",
+    "account": "Premier",
+    "fee": 239,
+    "ownATM": 7.5,
+    "otherATM": 11,
+    "cashAtTill": 2,
+    "minIncome": 25000
+  },
+  {
+    "bank": "FNB",
+    "account": "Private Clients",
+    "fee": 470,
+    "ownATM": 7.5,
+    "otherATM": 11,
+    "cashAtTill": 2,
+    "minIncome": 58000
+  },
+  {
+    "bank": "Absa",
+    "account": "Transact",
+    "fee": 6.5,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 0
+  },
+  {
+    "bank": "Absa",
+    "account": "Flexi",
+    "fee": 50,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 8000
+  },
+  {
+    "bank": "Absa",
+    "account": "Premium Banking",
+    "fee": 190,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 25000
+  },
+  {
+    "bank": "Absa",
+    "account": "Private Wealth",
+    "fee": 460,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 60000
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo",
+    "fee": 7.5,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 0
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "MyMo Plus",
+    "fee": 80,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 8000
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "Elite Banking",
+    "fee": 250,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 40000
+  },
+  {
+    "bank": "Standard Bank",
+    "account": "Signature Banking",
+    "fee": 480,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 65000
+  },
+  {
+    "bank": "Nedbank",
+    "account": "Pay-As-You-Use",
+    "fee": 0,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 0
+  },
+  {
+    "bank": "Nedbank",
+    "account": "MiGoals",
+    "fee": 110,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 8000
+  },
+  {
+    "bank": "Nedbank",
+    "account": "Premier",
+    "fee": 260,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 25000
+  },
+  {
+    "bank": "Nedbank",
+    "account": "Private Wealth",
+    "fee": 520,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 70000
+  },
+  {
+    "bank": "African Bank",
+    "account": "MyWORLD",
+    "fee": 0,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 0
+  },
+  {
+    "bank": "Old Mutual",
+    "account": "Money Account",
+    "fee": 5,
+    "ownATM": 8,
+    "otherATM": 11,
+    "cashAtTill": 3,
+    "minIncome": 0
+  },
+  {
+    "bank": "Discovery Bank",
+    "account": "Gold",
+    "fee": 165,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 15000
+  },
+  {
+    "bank": "Discovery Bank",
+    "account": "Platinum",
+    "fee": 250,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 35000
+  },
+  {
+    "bank": "Discovery Bank",
+    "account": "Black",
+    "fee": 420,
+    "ownATM": 7.5,
+    "otherATM": 10,
+    "cashAtTill": 3,
+    "minIncome": 55000
+  }
+]
