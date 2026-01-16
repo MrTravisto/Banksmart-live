@@ -1,0 +1,11 @@
+
+body{margin:0;font-family:Arial;background:#0f172a;color:#fff;}
+a{color:#22c55e;}
+.container{max-width:900px;margin:auto;padding:20px;}
+.card{background:#1e293b;padding:20px;border-radius:10px;margin:10px 0;}
+.best{border:2px solid #22c55e;}
+table{width:100%;border-collapse:collapse;background:#1e293b;}
+th,td{padding:10px;border-bottom:1px solid #334155;}
+button{padding:10px 15px;border:none;border-radius:6px;background:#22c55e;color:#000;font-weight:bold;}
+input{padding:10px;border-radius:6px;border:none;margin-right:10px;}
+.nav a{margin-right:20px;}
