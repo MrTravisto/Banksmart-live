@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -340,6 +339,85 @@ td {
   padding: 2px 6px;
   margin-top: 5px;
 }
+/* ── EMAIL CAPTURE ── */
+.email-section {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  background: linear-gradient(180deg, transparent, rgba(34,197,94,0.03));
+}
+.email-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.email-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 240px;
+}
+.email-icon { font-size: 2rem; flex-shrink: 0; }
+.email-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.email-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.email-form { flex: 1; min-width: 260px; max-width: 420px; }
+.email-fields {
+  display: flex;
+  gap: 8px;
+}
+.email-input {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+.email-input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+}
+.email-btn {
+  padding: 11px 20px;
+  border-radius: 8px;
+  border: 0;
+  background: linear-gradient(135deg, var(--green), #16a34a);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.email-btn:hover { opacity: 0.88; }
+.email-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.email-legal { font-size: 11px; color: #3d5a78; margin-top: 8px; }
+.email-success {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .email-card { flex-direction: column; padding: 20px; }
+  .email-form { width: 100%; max-width: 100%; }
+}
+
 /* ── FEE BREAKDOWN DRAWER ── */
 .fee-drawer {
   background: var(--bg);
@@ -600,6 +678,38 @@ td {
 </main>
 
 <!-- ── FOOTER ── -->
+<!-- ── EMAIL CAPTURE ── -->
+<section class="email-section">
+  <div class="wrap">
+    <div class="email-card">
+      <div class="email-content">
+        <div class="email-icon">🔔</div>
+        <div>
+          <h3 class="email-title">Get fee update alerts</h3>
+          <p class="email-sub">SA bank fees change every July. We'll email you when accounts update — no spam, unsubscribe any time.</p>
+        </div>
+      </div>
+      <form class="email-form" id="emailForm" onsubmit="handleSignup(event)">
+        <div class="email-fields">
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+            class="email-input"
+          />
+          <button type="submit" class="email-btn" id="emailBtn">Notify me</button>
+        </div>
+        <p class="email-legal">By subscribing you agree to receive occasional emails from BankSmart. No spam.</p>
+        <div id="emailSuccess" class="email-success" style="display:none">
+          ✅ You're on the list! We'll notify you when fees change.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <span class="footer-brand">BankSmart</span>
   <div>South Africa's salary-based bank fee comparison tool</div>
@@ -699,17 +809,17 @@ const ACCOUNTS = [
   {
     bank: "Absa", account: "Transact Account",
     fee: 7, minSalary: 0, maxSalary: 4999,
-    notes: "Entry-level account · Free Absa ATM withdrawals · CashSend",
+    notes: "R7/month · Free Absa ATM withdrawals & deposits · Free digital payments · CashSend",
     url: "https://www.absa.co.za/personal/bank/an-account/transact-account/?utm_source=BankSmart",
     tier: "entry",
     txFees: {
-      atmWithdrawal:      "FREE at Absa ATMs · R10.00/R1,000 other bank ATMs",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "FREE (digital)",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "Free Absa ATM withdrawals and free digital payments are key value-adds on this entry account."
+      atmWithdrawal:      "FREE at Absa ATMs",
+      atmWithdrawalOther: "R10.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "R1.80 per R100 (Absa ATM)",
+      onlineEFT:          "FREE (app/online banking)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R1.80 per R100 (branch/teller)",
+      freeNote:           "Source: absa.co.za 2026 pricing brochure. Voted SA's most affordable entry-level account 2 years running (Solidarity Bank Charges Report 2026). Free Absa ATM withdrawals & free digital payments included."
     }
   },
   {
@@ -796,18 +906,18 @@ const ACCOUNTS = [
   },
   {
     bank: "Nedbank", account: "MiGoals",
-    fee: 105, minSalary: 6000, maxSalary: 9999,
-    notes: "30 free transactions · Greenbacks rewards · Goal-based savings",
-    url: "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/personal/bank/accounts/migoals-account.html?utm_source=BankSmart",
+    fee: 8, minSalary: 6000, maxSalary: 9999,
+    notes: "R8/month pay-as-you-use · Free card purchases · Greenbacks optional",
+    url: "https://personal.nedbank.co.za/bank/bank-accounts/everyday-banking/migoals.html?utm_source=BankSmart",
     tier: "standard",
     txFees: {
-      atmWithdrawal:      "R11.00 per R1,000 (Nedbank ATM)",
-      atmWithdrawalOther: "R11.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Included in 30 free tx",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "30 bundled transactions per month include EFTs and ATM withdrawals."
+      atmWithdrawal:      "R12.00 per R1,000 (Nedbank ATM)",
+      atmWithdrawalOther: "R12.00 + R12.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "R2.00 per R100 (Nedbank ATM)",
+      onlineEFT:          "R1.00 per payment (app/online)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R100.00 per R1,000 (branch)",
+      freeNote:           "Source: nedbank.co.za 2026 pricing PDF (Jan–Dec 2026). Card purchases free. Free digital interaccount transfers & stop orders. R8/month is PAYU — pay only for what you use."
     }
   },
   {
@@ -829,17 +939,17 @@ const ACCOUNTS = [
   {
     bank: "Absa", account: "Gold Value Bundle",
     fee: 110, minSalary: 8000, maxSalary: 9999,
-    notes: "40 free transactions · Absa Rewards · Value bundle",
+    notes: "R110/month · Free Absa ATM withdrawals & deposits up to R2,000/month · Absa Rewards",
     url: "https://www.absa.co.za/personal/bank/an-account/gold-value-bundle/?utm_source=BankSmart",
     tier: "standard",
     txFees: {
-      atmWithdrawal:      "Included in 40 free tx · R10.00/R1,000 thereafter",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Included in bundle",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "40 bundled transactions per month. Free Absa ATM withdrawals within bundle."
+      atmWithdrawal:      "Free up to R2,000/month (Absa ATM) · R1.80/R100 thereafter",
+      atmWithdrawalOther: "R1.80 per R100 (other bank ATM)",
+      atmDeposit:         "Free up to R2,000/month (Absa ATM) · R1.80/R100 thereafter",
+      onlineEFT:          "FREE (unlimited digital EFTs included in bundle)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R1.80 per R100 (branch/teller)",
+      freeNote:           "Source: absa.co.za 2026 pricing brochure. Free Absa ATM withdrawals & deposits up to R2,000/month. Free digital payments. Card swipes always free."
     }
   },
 
@@ -862,34 +972,34 @@ const ACCOUNTS = [
   },
   {
     bank: "Nedbank", account: "MiGoals Plus",
-    fee: 189, minSalary: 10000, maxSalary: 24999,
-    notes: "Enhanced bundle · 50 free transactions · Greenbacks rewards",
-    url: "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/personal/bank/accounts/migoals-plus-account.html?utm_source=BankSmart",
+    fee: 99, minSalary: 10000, maxSalary: 24999,
+    notes: "R99/month · Free Greenbacks · Free ATM withdrawals up to R2,000/month",
+    url: "https://personal.nedbank.co.za/bank/bank-accounts/everyday-banking/migoals-plus.html?utm_source=BankSmart",
     tier: "mid",
     txFees: {
-      atmWithdrawal:      "Included in 50 free tx · R11.00/R1,000 thereafter",
-      atmWithdrawalOther: "R11.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Included in bundle",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "50 bundled transactions include ATM withdrawals, EFTs and debit orders."
+      atmWithdrawal:      "Free up to R2,000/month (Nedbank ATM) · R12.00/R1,000 thereafter",
+      atmWithdrawalOther: "R12.00 + R12.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "Free up to R2,000/month · R2.00/R100 thereafter (Nedbank ATM)",
+      onlineEFT:          "FREE (digital payments & EFTs included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay to account)",
+      cashDeposit:        "R100.00 per R1,000 (branch)",
+      freeNote:           "Source: nedbank.co.za 2026 pricing PDF (Jan–Dec 2026). Free debit & stop orders, free digital EFTs, free POS withdrawals. Card purchases always free."
     }
   },
   {
     bank: "Absa", account: "Gold Rewards Bundle",
     fee: 179, minSalary: 10000, maxSalary: 24999,
-    notes: "50 free transactions · Absa Rewards · Travel insurance",
+    notes: "R179/month · Free Absa ATM withdrawals & deposits up to R3,000/month · Travel insurance · Absa Rewards",
     url: "https://www.absa.co.za/personal/bank/an-account/gold-rewards-bundle/?utm_source=BankSmart",
     tier: "mid",
     txFees: {
-      atmWithdrawal:      "Included in 50 free tx · R10.00/R1,000 thereafter",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Included in bundle",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "50 bundled transactions. Travel insurance included at this tier."
+      atmWithdrawal:      "Free up to R3,000/month (Absa ATM) · R1.80/R100 thereafter",
+      atmWithdrawalOther: "R1.80 per R100 (other bank ATM)",
+      atmDeposit:         "Free up to R3,000/month (Absa ATM) · R1.80/R100 thereafter",
+      onlineEFT:          "FREE (unlimited digital EFTs included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R1.80 per R100 (branch/teller)",
+      freeNote:           "Source: absa.co.za 2026 pricing brochure. Free Absa ATM withdrawals & deposits up to R3,000/month. Travel insurance included. Card swipes always free."
     }
   },
   {
@@ -908,23 +1018,6 @@ const ACCOUNTS = [
       freeNote:           "40 bundled transactions per month. Good mid-range value with UCount rewards."
     }
   },
-  {
-    bank: "Capitec", account: "Global One",
-    fee: 7.50, minSalary: 10000, maxSalary: 24999,
-    notes: "Flat low monthly fee · Unlimited app transactions · Savings plans",
-    url: "https://apply.capitecbank.co.za/current-account/?source=BankSmart&affiliate=BS001",
-    tier: "mid",
-    txFees: {
-      atmWithdrawal:      "R10.00 per R1,000 (any SA ATM)",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.40 per R100",
-      onlineEFT:          "R2.00 (app/online)",
-      instantEFT:         "R6.00",
-      cashDeposit:        "R1.40 per R100 (ATM or till)",
-      freeNote:           "Pay-as-you-transact at very low rates regardless of salary. Card swipes free."
-    }
-  },
-
   // ── BAND 4: R25,000 – R59,999 ──
   {
     bank: "FNB", account: "Premier",
@@ -959,35 +1052,35 @@ const ACCOUNTS = [
     }
   },
   {
-    bank: "Nedbank", account: "Savvy Plus",
-    fee: 285, minSalary: 25000, maxSalary: 59999,
-    notes: "Unlimited transactions · Greenbacks rewards · Travel benefits",
-    url: "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/personal/bank/accounts/savvy-plus-account.html?utm_source=BankSmart",
+    bank: "Nedbank", account: "MiGoals Premium",
+    fee: 250, minSalary: 25000, maxSalary: 59999,
+    notes: "R250/month · Free ATM withdrawals up to R4,000/month · 12 airport lounge visits/year · Credit card included",
+    url: "https://personal.nedbank.co.za/bank/bank-accounts/everyday-banking/migoals-premium.html?utm_source=BankSmart",
     tier: "premier",
     txFees: {
-      atmWithdrawal:      "Unlimited free (Nedbank ATMs)",
-      atmWithdrawalOther: "R11.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Unlimited free",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "Unlimited free Nedbank ATM withdrawals and digital EFTs included in monthly fee."
+      atmWithdrawal:      "Free up to R4,000/month (Nedbank ATM) · R12.00/R1,000 thereafter",
+      atmWithdrawalOther: "R12.00 + R12.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "Free up to R4,000/month · R2.00/R100 thereafter (Nedbank ATM)",
+      onlineEFT:          "FREE (unlimited digital EFTs & debit orders included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay to account)",
+      cashDeposit:        "R100.00 per R1,000 (branch/teller)",
+      freeNote:           "Source: nedbank.co.za 2026 pricing PDF (Jan–Dec 2026). Credit card included at no extra monthly fee. 12 domestic airport lounge visits/year. Free POS withdrawals."
     }
   },
   {
     bank: "Absa", account: "Premier Bundle",
     fee: 399, minSalary: 25000, maxSalary: 59999,
-    notes: "Priority service · Comprehensive bundle · Absa Rewards · Travel cover",
+    notes: "R399/month · Free Absa ATM withdrawals & deposits up to R4,000/month · Priority service · Travel cover",
     url: "https://www.absa.co.za/personal/bank/an-account/premier/?utm_source=BankSmart",
     tier: "premier",
     txFees: {
-      atmWithdrawal:      "Unlimited free (Absa ATMs)",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "Unlimited free",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "Unlimited Absa ATM withdrawals and unlimited digital payments in monthly fee."
+      atmWithdrawal:      "Free up to R4,000/month (Absa ATM) · R1.80/R100 thereafter",
+      atmWithdrawalOther: "R1.80 per R100 (other bank ATM)",
+      atmDeposit:         "Free up to R4,000/month (Absa ATM) · R1.80/R100 thereafter",
+      onlineEFT:          "FREE (unlimited digital EFTs included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R1.80 per R100 (branch/teller)",
+      freeNote:           "Source: absa.co.za 2026 pricing brochure. Free Absa ATM withdrawals & deposits up to R4,000/month. Priority service & travel cover included. Card swipes always free."
     }
   },
   {
@@ -1043,33 +1136,33 @@ const ACCOUNTS = [
   {
     bank: "Nedbank", account: "Private Clients",
     fee: 520, minSalary: 60000, maxSalary: 149999,
-    notes: "Dedicated banker · Greenbacks rewards · Comprehensive cover · Exclusive rates",
-    url: "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/personal/bank/accounts/private-clients.html?utm_source=BankSmart",
+    notes: "R520/month · Dedicated private banker · Greenbacks · Airport lounge access · Comprehensive cover",
+    url: "https://personal.nedbank.co.za/bank/bank-accounts/everyday-banking/private-clients.html?utm_source=BankSmart",
     tier: "private",
     txFees: {
-      atmWithdrawal:      "Unlimited free (Nedbank ATMs)",
-      atmWithdrawalOther: "R11.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "FREE",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "Unlimited Nedbank ATM withdrawals and all digital payments free."
+      atmWithdrawal:      "Unlimited FREE (Nedbank ATMs) · R12.00/R1,000 other bank ATMs",
+      atmWithdrawalOther: "R12.00 + R12.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "Unlimited FREE (Nedbank ATMs)",
+      onlineEFT:          "FREE (unlimited digital EFTs, debit & stop orders included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay to account)",
+      cashDeposit:        "R100.00 per R1,000 (branch/teller)",
+      freeNote:           "Source: nedbank.co.za 2026 pricing. Dedicated private banker, unlimited Nedbank ATM access, all digital payments free. Free POS withdrawals."
     }
   },
   {
     bank: "Absa", account: "Private Bank Account",
     fee: 590, minSalary: 60000, maxSalary: 149999,
-    notes: "Private banking team · Exclusive rates · Comprehensive bundle",
+    notes: "R590/month · Unlimited free Absa ATM withdrawals · 5 free ATM deposits/month · Dedicated private team",
     url: "https://www.absa.co.za/personal/bank/an-account/private-bank/?utm_source=BankSmart",
     tier: "private",
     txFees: {
-      atmWithdrawal:      "Unlimited free (Absa ATMs)",
-      atmWithdrawalOther: "R10.00 per R1,000",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "FREE",
-      instantEFT:         "R10.00",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "Unlimited Absa ATM withdrawals and all digital EFTs included in monthly fee."
+      atmWithdrawal:      "Unlimited FREE (Absa ATMs)",
+      atmWithdrawalOther: "R1.80 per R100 (other bank ATM)",
+      atmDeposit:         "5 free deposits/month (Absa ATM) · R1.80/R100 thereafter",
+      onlineEFT:          "FREE (unlimited digital EFTs included)",
+      instantEFT:         "R10.00 (PayShap/Instant Pay)",
+      cashDeposit:        "R1.80 per R100 (branch/teller)",
+      freeNote:           "Source: absa.co.za 2026 pricing brochure. Unlimited Absa ATM withdrawals. 5 free ATM deposits/month. Dedicated private banking team. Card swipes always free."
     }
   },
   {
@@ -1141,17 +1234,17 @@ const ACCOUNTS = [
   {
     bank: "Nedbank", account: "Private Wealth",
     fee: 990, minSalary: 150000, maxSalary: null,
-    notes: "Dedicated wealth manager · Investment banking · Comprehensive estate planning",
-    url: "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/personal/bank/accounts/private-wealth.html?utm_source=BankSmart",
+    notes: "R990/month · Dedicated wealth manager · Unlimited Nedbank ATM access · All digital payments free",
+    url: "https://personal.nedbank.co.za/bank/bank-accounts/everyday-banking/private-wealth.html?utm_source=BankSmart",
     tier: "wealth",
     txFees: {
-      atmWithdrawal:      "Unlimited free (SA ATMs)",
-      atmWithdrawalOther: "Unlimited free (SA ATMs)",
-      atmDeposit:         "R1.80 per R100",
-      onlineEFT:          "FREE",
-      instantEFT:         "FREE",
-      cashDeposit:        "R1.80 per R100",
-      freeNote:           "All SA ATM withdrawals and all payments free. Wealth manager and estate planning included."
+      atmWithdrawal:      "Unlimited FREE (Nedbank ATMs) · R12.00/R1,000 other bank ATMs",
+      atmWithdrawalOther: "R12.00 + R12.00 per R1,000 (other bank ATM)",
+      atmDeposit:         "Unlimited FREE (Nedbank ATMs)",
+      onlineEFT:          "FREE (all digital EFTs, debit & stop orders included)",
+      instantEFT:         "FREE (PayShap/Instant Pay included)",
+      cashDeposit:        "R100.00 per R1,000 (branch/teller)",
+      freeNote:           "Source: nedbank.co.za 2026 pricing. Dedicated wealth manager, estate planning & investment banking included. Unlimited Nedbank ATM access. All digital payments free."
     }
   }
 ];
@@ -1394,6 +1487,37 @@ function toggleFees(rowId) {
 function setFilter(f) {
   currentFilter = f;
   render(Number(document.getElementById('salary').value));
+}
+
+// ── EMAIL SIGNUP ──
+function handleSignup(e) {
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value;
+  const btn   = document.getElementById('emailBtn');
+  const success = document.getElementById('emailSuccess');
+
+  if (!email) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  // Store locally (replace this endpoint with MailerLite/Mailchimp API when ready)
+  try {
+    const subs = JSON.parse(localStorage.getItem('bs_subscribers') || '[]');
+    subs.push({ email, ts: new Date().toISOString() });
+    localStorage.setItem('bs_subscribers', JSON.stringify(subs));
+  } catch(err) {}
+
+  // GA event
+  if (typeof gtag === 'function') {
+    gtag('event', 'email_signup', { email_domain: email.split('@')[1] });
+  }
+
+  // Show success
+  setTimeout(() => {
+    document.getElementById('emailForm').querySelector('.email-fields').style.display = 'none';
+    success.style.display = 'block';
+  }, 400);
 }
 
 // ── WIRING ──
